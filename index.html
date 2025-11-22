@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wedding Banquet Planner</title>
+</head>
+<body>
+<script>
+// get user stuff
+let guests = parseInt(prompt("How many guests?"));
+let tables = parseInt(prompt("How many tables?"));
+
+// math for seating
+let baseAmount = Math.floor(guests / tables);
+let extra = guests % tables;
+
+let message = "Your " + guests + " guests will be seated as follows:\n";
+
+// go thru tables
+for (let i = 1; i <= tables; i++) {
+    let tableSize;
+
+    // first tables get extra ppl
+    if (i <= extra) {
+        tableSize = baseAmount + 1;
+    } else {
+        tableSize = baseAmount;
+    }
+
+    message += "Table " + i + ": " + tableSize + " guests\n";
+}
+
+alert(message);
+</script>
